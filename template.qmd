@@ -1,5 +1,5 @@
 ---
-title: "Mobilizing Justice Report Test"
+title: "Mobilizing Justice Report"
 rtitle: "This is the running title of the document"
 format:
   mj-report-pdf: 
