@@ -11,23 +11,27 @@ knitr::opts_chunk$set(
 )
 ```
 
-# mj-report
+# Mobilizing Justice Document Template
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-## Installing
+This template can be used to create documents for project Mobilizing Justice
 
+To create a new article using this format:
 
-```bash
+``` bash
 quarto use template paezha/mj-report
 ```
 
-This will install the extension and create an example qmd file that you can use as a starting place for your article.
+This will install the extension and create an example qmd file that you can use as a starting place for your document.
 
-## Using
+## Using the template
 
 *TODO*: Describe how to use your format.
+
+- Where do images go? Recommendations about the use of images.
+- Where does the bibliography go?
 
 ## Format Options
 
@@ -35,14 +39,17 @@ This will install the extension and create an example qmd file that you can use 
 
 ## Example
 
+Below is an example of a document created using this template:
 
+<!-- pdftools::pdf_convert('template.pdf',pages = 1) --> 
 
-<!-- pdftools::pdf_convert('template.pdf',pages = 1) 
-![[template.qmd](template.qmd)](template_1.png) -->
+![](template_1.png){width=50%}
 
-Here is the source code for a minimal sample document: [example.qmd](example.qmd).
+The source code for this [minimal sample document]((template.qmd)) is here
 
 ## License
+
+*TODO*: What license to use??
 
 This modifies the {Owner} {What} Template, available at <{some_link}>.
 The original template is licensed under the [{license_name}]({license_link}).

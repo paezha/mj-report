@@ -1,29 +1,20 @@
 ---
 title: "Mobilizing Justice Report"
+# THIS rtitle HERE IS NOT WORKING AT THE MOMENT LIKELY BECAUSE I DID NOT DEFINE IT CORRECTLY
 rtitle: "This is the running title"
 format:
   mj-report-pdf: 
     keep-tex: true
 author:
-  - name: Author Pink
-    affiliations:
-      - name: Harvard University
-        id: a
-        department: Department of Government
-        city: Cambridge
-        state: MA
-        postal-code: 02138
+  - name: Author One
+    affiliations: 
+      name: McMaster University
     #attributes:
     #  equal-contributor: true
     email: corresponding1@email.com
-  - name: Author Blue
-    affiliations:
-      - name: Yale University
-        id: b
-        department: Department of Political Science
-        city: New Haven
-        state: CT
-        postal-code: 06511
+  - name: Author Two
+    affiliations: 
+      name: University of Toronto
     #attributes:
     #  equal-contributor: true
     #  corresponding: true
@@ -53,20 +44,26 @@ Here is an example of a reference: @OECDFrameworks2013.
 Use \bibsplit to split the references from the body of the text. Value "[2]" represents the number of reference in the left column (Note: Please avoid single column figures & tables on this page.) -->
 
 :::{#refs}
+
 :::
 
+<!-- 
+DO NOT EDIT BELOW THIS COMMENT
+-->
+
 \newpage
+
 ```{=tex}
 % LAST PAGE
+% This page is left blank on purpose
+
 % Set style for this page
 \thispagestyle{empty}
-
-% This page is left blank
 
 % Council logo at bottom
 \begin{center}
     \begin{figure}[b]
-        \includegraphics[width=\textwidth]{images/sshrc-canada-banner.jpg}
+        \includegraphics[width=\textwidth]{images/sshrc-canada-banner.png}
     \end{figure}    
 \end{center}
 ```

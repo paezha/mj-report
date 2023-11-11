@@ -1,54 +1,70 @@
+%
+%
+%
+
+% START OF TITLE PAGE
 \thispagestyle{empty}
 
-% Title banner top
-\AddToShipoutPicture*{%
- \AtPageUpperLeft{\raisebox{-\height}{\includegraphics{images/title-banner.png}}}}
+% Define a dimension for the height of the banner for the title page
+\newdimen\bannerheight
 
-% Report information
+% Set \bannerheight to the height of the banner
+\settoheight{\bannerheight}{%
+  \includegraphics[width=\paperwidth]{images/title-banner.png}%
+}
+
+% Title banner top
+\AddToShipoutPictureBG*{%
+ \AtPageUpperLeft{\raisebox{-\height}{\includegraphics[width=\paperwidth]{images/title-banner.png}}}
+ }
+
+% Cover picture
+\AddToShipoutPictureBG*{%
+ %\AtPageLowerLeft{\raisebox{0.5\height}{\includegraphics[width=\paperwidth]{images/cover-picture.png}}}
+ \AtPageUpperLeft{\raisebox{-\bannerheight-\height}{\includegraphics[width=\paperwidth]{images/cover-picture2.png}}}
+ }
+
+% Report information: Needs information that is in file template.qmd
 \begin{flushleft}
-    \vspace{-10cm}
+    \vspace{-7cm}
       $if(title)$
         {\relscale{2}{\textcolor{white}{$title$}}}\\ % HERE GOES THE TITLE OF THE DOCUMENT 
       $endif$
       \vspace{1cm} 
       
+      % TODO: IT IS NOT PRINTING THE AFFILIATIONS CORRECTLY
       $for(by-author)$
-        {\relscale{1.5}{\textcolor{Yellow}{$by-author.name.literal$}}} % HERE GO THE AUTHORS
+        {\relscale{1.5}{\textcolor{Yellow}{$by-author.name.literal$}}}\hskip 10pt {Some affiliation}\par % HERE GO THE AUTHORS + POSSIBLY AFFILIATIONS (CURRENTLY NOT WORKING)
       $endfor$
-    %\vspace{10cm}
 \end{flushleft}
+
 \begin{flushright}
     \vspace{-1cm}
-        {\relscale{1.5}{\textcolor{Yellow}{Report}}}\\ % HERE GOES THE DOCUMENT TYPE
+        {\relscale{1.5}{\textcolor{Yellow}{Report}}}\\ % HERE GOES THE DOCUMENT TYPE; CURRENTLY HARDCODED BUT COULD BE AN INPUT IN template.qmd
         \vspace{1cm}     
-        {\relscale{1.5}{\textcolor{LightGray}{Report Date}}} % HERE GOES THE DATE OF PUBLICATION
+        {\relscale{1.5}{\textcolor{LightGray}{$date$}}} % HERE GOES THE DATE OF PUBLICATION
 \end{flushright}
 
-% Cover picture
-\vspace{0.5cm}
-\begin{center}
-  \makebox[\textwidth]{\includegraphics[width=\paperwidth]{images/cover-picture.jpg}}
-\end{center}
-
-% Title banner bottom 
-\vspace{-15.5cm}
-\begin{center}
-  \makebox[\textwidth]{\includegraphics[width=\paperwidth]{images/title-banner-2.png}}
-\end{center}
-
 % Mobilizing Justice Logo
-\vspace{1cm}
-\begin{figure}[b]
-\includegraphics[width=0.5\textwidth]{images/mj-logo.png}
-\end{figure}
+\AddToShipoutPictureBG*{\put(30,30)%
+{\includegraphics[width=0.5\textwidth]{images/mj-logo.png}%
+}}
 
-\onehalfspacing
+%\AddToShipoutPictureBG*{%
+% \AtPageLowerLeft{\raisebox{\height}{\includegraphics[width=0.5\textwidth]{images/mj-logo.png}}}
+% }
+
+% END OF TITLE PAGE
 
 \newpage
+
+% START OF ABOUT PAGE
 
 \section*{About Mobilizing Justice}
 
 The Mobilizing Justice Partnership is funded by the Social Sciences and Humanities Research Council (SSHRC). Based at the University of Toronto Scarborough, the national intersectoral research partnership aims to understand and address transportation poverty in Canada and to improve the well-being of Canadians at risk of transport poverty. Learn more at \url{www.mobilizingjustice.ca}.
+
+% TABLE OF PARTNERS
 
 \section*{Our Partners}
 \begin{center}
@@ -78,27 +94,27 @@ Federation of Canadian Municipalities	& Toronto Transit Commission (TTC)	& \LL
 }
 \end{center}
 
+% END OF ABOUT PAGE
+
 \newpage
 
-% TABLE OF CONTENTS
+% START OF TABLE OF CONTENTS PAGE
+
 % Table of contents picture top
-\AddToShipoutPicture*{%
- \AtPageUpperLeft{\raisebox{-\height}{\includegraphics{images/table-of-contents-picture.png}}}}
+\AddToShipoutPictureBG*{%
+ \AtPageUpperLeft{\raisebox{-\height}{\includegraphics[width=\paperwidth]{images/table-of-contents-picture.png}}}}
 
-%\begin{center}
-%  \makebox[\textwidth]{\AddToShipoutPicture*{%
-% \AtPageUpperLeft{\raisebox{-\height}{\includegraphics{images/table-of-contents-picture.png}}}}}
-%\end{center}
-
-% Change the geometry of the page for this one page, so that the table of contents is below the banner image instead of on top of it
+% Change the geometry of this one page so that the table of contents begins below the banner image instead of on top of it
 \newgeometry{top=10cm}
 
 % Title for the table of contents
-\renewcommand\contentsname{\color{DarkBlue}\normalfont\bfseries\fontsize{24}{28.8}\selectfont Table of Contents}
+%\renewcommand\contentsname{\color{DarkBlue}\normalfont\bfseries\fontsize{24}{28.8}\selectfont Table of Contents}
 %\restoregeometry
 %\newgeometry{left=5cm}
 \setcounter{tocdepth}{1}
 \tableofcontents
 \restoregeometry
+
+% ENDO OF TABLE OF CONTENTS
 
 \newpage
