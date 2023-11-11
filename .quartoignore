@@ -1,0 +1,5 @@
+*.pdf
+*.rproj
+*.Rproj
+/renv
+renv.lock
