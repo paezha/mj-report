@@ -37,6 +37,8 @@ This will install the extension and create an example qmd file that you can use 
 
 *TODO*: If your format has options that can be set via document metadata, describe them.
 
+This would be nice! We still need a page with the information about the authors (affiliation, emails, etc.) Add hyperlinks to MJ.
+
 ## Example
 
 Below is an example of a document created using this template:

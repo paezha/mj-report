@@ -16,16 +16,22 @@ quarto use template paezha/mj-report
 ```
 
 This will install the extension and create an example qmd file that you
-can use as a starting place for your article.
+can use as a starting place for your document.
 
 ## Using the template
 
 *TODO*: Describe how to use your format.
 
+- Where do images go? Recommendations about the use of images.
+- Where does the bibliography go?
+
 ## Format Options
 
 *TODO*: If your format has options that can be set via document
 metadata, describe them.
+
+This would be nice! We still need a page with the information about the
+authors (affiliation, emails, etc.) Add hyperlinks to MJ.
 
 ## Example
 
