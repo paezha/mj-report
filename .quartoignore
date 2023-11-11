@@ -3,3 +3,4 @@
 *.Rproj
 renv/
 renv.lock
+README.*

@@ -1,6 +1,6 @@
 ---
 title: "Mobilizing Justice Report"
-rtitle: "This is the running title of the document"
+rtitle: "This is the running title"
 format:
   mj-report-pdf: 
     keep-tex: true
