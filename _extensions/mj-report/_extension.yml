@@ -9,6 +9,7 @@ contributes:
       include-in-header: header.tex
       format-resources:
         - mj-template.tex
+        - mobilizing-justice.sty
       template-partials:
         - "partials/doc-class.tex"
         - "partials/title.tex"

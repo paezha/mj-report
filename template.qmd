@@ -1,7 +1,7 @@
 ---
 title: "Mobilizing Justice Report"
 # THIS rtitle HERE IS NOT WORKING AT THE MOMENT LIKELY BECAUSE I DID NOT DEFINE IT CORRECTLY
-rtitle: "This is the running title"
+rtitle: "This is the running title of the report"
 format:
   mj-report-pdf: 
     keep-tex: true
