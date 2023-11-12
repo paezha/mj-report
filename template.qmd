@@ -6,12 +6,16 @@ format:
     keep-tex: true
 doctype: "Report (Draft)"
 author:
-  - name: Author One
+  - name:
+      given: Author
+      family: One
     affiliations: 
       - name: McMaster University
         department: School of Earth, Environment and Society
     email: corresponding1@email.com
-  - name: Author Two
+  - name:
+      given: Author
+      family: Two
     affiliations: 
       - name: University of Toronto
         department: Department of Geography and Planning
@@ -24,7 +28,7 @@ citation:
   doi: "10.23915/reprodocs.00010"
   issued: last-modified
   url: https://example.com/summarizing-output
-  number: "MJ0001"
+  number: "MJ-0001"
 bibliography: bibliography.bib
 ---
 
@@ -36,7 +40,7 @@ bibliography: bibliography.bib
 
 You can learn more about controlling the appearance of PDF output here: <https://quarto.org/docs/output-formats/pdf-basics.html>
 
-Here is an example of a reference: @OECDFrameworks2013.
+Here is an example of a reference: @OECDFrameworks2013. Here is another reference: @MJ-0001.
 
 \newpage
 

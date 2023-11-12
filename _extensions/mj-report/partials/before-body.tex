@@ -89,18 +89,45 @@ $endif$
 This \href{$citation.url$}{report} is published under a Creative Commons \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY Licence} \includegraphics[height=11pt]{images/cc-by.png}.
 
 % HERE GOES THE TITLE OF THE DOCUMENT
+
 $if(citation)$
   \vskip 20pt
+  % APA style citation
   For attribution, please cite this work as:\\
   \vskip 1pt
-  $for(by-author)$
-    {$by-author.name.literal$},
-  $endfor$ \the\year. "\textit{$title$}". Mobilizing Justice, Report \textit{$citation.number$} (url: \url{$citation.url$}).
+  % This loop is for all authors but last! Check https://stackoverflow.com/questions/42354800/pandoc-template-different-separator-for-last-item
+  % Also, it uses a custom function for extracting the first letter of the given name of authors (see partial header.tex). NOTE: IF THERE IS A MIDDLE NAME IT SADLY VANISHES
+  $if(by-author/allbutlast)$
+    $for(by-author/allbutlast)$
+      {$by-author.name.family$, \ExtractFirstChar{$by-author.name.given$}.,}
+    $endfor$
+    $for(by-author/last)$
+      {$by-author.name.family$, \ExtractFirstChar{$by-author.name.given$}.}
+    $endfor$
+    $else$
+      ${by-author/last}
+    $endif$
+  %$for(by-author)$
+  %  {$by-author.name.literal$},
+  $endfor$ (\the\year). \textit{$title$} (Report No. $citation.number$). Mobilizing Justice. \url{$citation.url$}
   \vskip 20pt
+  %
+  % Bibtex citation card
+  %
   Or use this bibtex card:\\
   \vskip 1pt
   @report\{$citation.number$,\\
-           \hspace*{1.6cm} author = \{\},\\
+          % This loop is for all authors but last! Check https://stackoverflow.com/questions/42354800/pandoc-template-different-separator-for-last-item
+           \hspace*{1.6cm} author = \{$if(by-author/allbutlast)$
+                                        $for(by-author/allbutlast)$
+                                          {$by-author.name.family$, $by-author.name.given$ and} 
+                                        $endfor$
+                                        $for(by-author/last)$
+                                          {$by-author.name.family$, $by-author.name.given$}
+                                        $endfor$
+                                        $else$
+                                          ${by-author/last}
+                                        $endif$\},\\
            \hspace*{1.6cm} title = \{$title$\},\\
            \hspace*{1.6cm} year = \{\the\year\},\\
            \hspace*{1.6cm} institution = \{Mobilizing Justice\},\\
@@ -108,8 +135,6 @@ $if(citation)$
            \hspace*{1.6cm} url = \{$citation.url$\}\\
   \}
 $endif$
-
-
 
 %-----------------------------------------------------------------------------%
 % END OF HOW TO CITE PAGE
