@@ -44,33 +44,7 @@
 \renewcommand{\headrule}{\color{Maroon}\oldheadrule}% Add colour to \headrule
 \renewcommand{\headrulewidth}{12.5pt}
 
-% HERE GOES THE RUNNING TITLE FOR THE FOOTER
-\title{$title$}
-
-%-------------------------Header & Footer------------------------
-
-% PAGESTYLE FANCY IS THE DEFAULT
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\footrulewidth}{0pt}
-\fancyfoot[R]{\textbf{\thepage}}
-% THE TITLE IS NOT ACTUALLY GOING HERE WHY??
-\fancyfoot[L]{\nouppercase\@title} % HERE GOES THE TITLE
-\renewcommand{\footrulewidth}{1pt}
-
-% PAGESTYLE plain (IS IT EVEN USED?)
-\fancypagestyle{plain}{%
-  \renewcommand{\headrulewidth}{0pt}%
-  \fancyhf{}%
-  \renewcommand{\footrulewidth}{1pt}
-  \fancyfoot[R]{\textbf{\thepage}}%
-  % THE TITLE IS NOT ACTUALLY GOING HERE WHY??
-  \fancyfoot[L]{\nouppercase\@title} % HERE GOES THE TITLE
-}
-
-% PAGESTYLE title-page (IS IT EVEN USED?)
-\fancypagestyle{title-page}{%
-  \renewcommand{\headrulewidth}{0pt}%
-  \fancyhf{}%
-  \renewcommand{\footrulewidth}{0pt}
-}
+% HERE GOES THE TITLE FOR THE DOCUMENT
+$if(title)$
+  \title{$title$}
+$endif$

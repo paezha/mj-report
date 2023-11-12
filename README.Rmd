@@ -37,8 +37,6 @@ This will install the extension and create an example qmd file that you can use 
 
 *TODO*: If your format has options that can be set via document metadata, describe them.
 
-This would be nice! We still need a page with the information about the authors (affiliation, emails, etc.) Add hyperlinks to MJ.
-
 ## Example
 
 Below is an example of a document created using this template:
@@ -57,3 +55,6 @@ This modifies the {Owner} {What} Template, available at <{some_link}>.
 The original template is licensed under the [{license_name}]({license_link}).
 {any_other_required_notes_about_modifications}
 
+## Acknowledgments 
+
+Christopher T. Kenneys' post on creation of [quarto templates]([https://christophertkenny.com/posts/2023-07-01-creating-quarto-journal-articles/]) was extremely valuable as we learned the task.

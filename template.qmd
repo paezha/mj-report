@@ -1,26 +1,29 @@
 ---
 title: "Mobilizing Justice Report"
 # THIS rtitle HERE IS NOT WORKING AT THE MOMENT LIKELY BECAUSE I DID NOT DEFINE IT CORRECTLY
-rtitle: "This is the running title of the report"
+subtitle: "This is the running title of the report"
 format:
   mj-report-pdf: 
     keep-tex: true
 author:
   - name: Author One
     affiliations: 
-      name: McMaster University
+      - name: McMaster University
+        department: School of Earth, Environment and Society
     #attributes:
     #  equal-contributor: true
     email: corresponding1@email.com
   - name: Author Two
     affiliations: 
-      name: University of Toronto
+      - name: University of Toronto
+        department: Department of Geography and Planning
     #attributes:
     #  equal-contributor: true
     #  corresponding: true
     email: corresponding2@email.com  
 date: last-modified
-#template: mj-template.tex
+acknowledgements: | 
+  Please include your acknowledgments here, set in a single paragraph. Please do not include any acknowledgments in the Supporting Information, or anywhere else in the manuscript.
 bibliography: bibliography.bib
 ---
 

@@ -30,9 +30,6 @@ can use as a starting place for your document.
 *TODO*: If your format has options that can be set via document
 metadata, describe them.
 
-This would be nice! We still need a page with the information about the
-authors (affiliation, emails, etc.) Add hyperlinks to MJ.
-
 ## Example
 
 Below is an example of a document created using this template:
@@ -52,3 +49,9 @@ This modifies the {Owner} {What} Template, available at \<{some_link}\>.
 The original template is licensed under the
 [{license_name}](%7Blicense_link%7D).
 {any_other_required_notes_about_modifications}
+
+## Acknowledgments
+
+Christopher T. Kenneys’ post on creation of [quarto
+templates](%5Bhttps://christophertkenny.com/posts/2023-07-01-creating-quarto-journal-articles/%5D)
+was extremely valuable as we learned the task.

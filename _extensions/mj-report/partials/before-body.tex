@@ -1,8 +1,30 @@
-%
-%
-%
+%-----------------------------------------------------------------------------%
+%                            Set Page STYLE                                   %
+%-----------------------------------------------------------------------------%
 
+% THIS IS THE DEFAULT PAGE STYLE
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[R]{\textbf{\thepage}}
+\fancyfoot[L]{$subtitle$}
+\renewcommand{\footrulewidth}{1pt}
+
+% THE TABLE OF CONTENTS PAGE USES THIS STYLE
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+  \renewcommand{\footrulewidth}{1pt}
+  \fancyfoot[R]{\textbf{\thepage}}%
+  % THE TITLE IS NOT ACTUALLY GOING HERE WHY??
+  \fancyfoot[L]{$subtitle$} % HERE GOES THE TITLE
+}
+
+% IT IS ALSO POSSIBLE TO USE STYLE empty AS IN THE TITLE PAGE AND FINAL PAGE
+
+%-----------------------------------------------------------------------------%
 % START OF TITLE PAGE
+%-----------------------------------------------------------------------------%
 \thispagestyle{empty}
 
 % Define a dimension for the height of the banner for the title page
@@ -21,21 +43,29 @@
 % Cover picture
 \AddToShipoutPictureBG*{%
  %\AtPageLowerLeft{\raisebox{0.5\height}{\includegraphics[width=\paperwidth]{images/cover-picture.png}}}
- \AtPageUpperLeft{\raisebox{-\bannerheight-\height}{\includegraphics[width=\paperwidth]{images/cover-picture2.png}}}
+ \AtPageUpperLeft{\raisebox{-\bannerheight-\height}{\includegraphics[width=\paperwidth]{images/cover-picture.png}}}
  }
 
 % Report information: Needs information that is in file template.qmd
 \begin{flushleft}
     \vspace{-7cm}
+      
+      % HERE GOES THE TITLE OF THE DOCUMENT
       $if(title)$
-        {\relscale{2}{\textcolor{white}{$title$}}}\\ % HERE GOES THE TITLE OF THE DOCUMENT 
+        {\relscale{2}{\textcolor{white}{$title$}}}\\  
       $endif$
       \vspace{1cm} 
       
-      % TODO: IT IS NOT PRINTING THE AFFILIATIONS CORRECTLY
+      % HERE GO THE AUTHORS AFFILIATIONS (ONLY NAME OF ORGANIZATION)
+      % Needs to iterate by authors
       $for(by-author)$
-        {\relscale{1.5}{\textcolor{Yellow}{$by-author.name.literal$}}}\hskip 10pt {Some affiliation}\par % HERE GO THE AUTHORS + POSSIBLY AFFILIATIONS (CURRENTLY NOT WORKING)
+        {\relscale{1.5}{\textcolor{Yellow}{$by-author.name.literal$}}} 
+          % Needs to iterate by affilitations
+          $for(by-author.affiliations)$
+            \hskip 10pt{\relscale{1.0}{\textcolor{Yellow}{$by-author.affiliations.name$}}} \par%
+          $endfor$ 
       $endfor$
+    
 \end{flushleft}
 
 \begin{flushright}
@@ -50,15 +80,14 @@
 {\includegraphics[width=0.5\textwidth]{images/mj-logo.png}%
 }}
 
-%\AddToShipoutPictureBG*{%
-% \AtPageLowerLeft{\raisebox{\height}{\includegraphics[width=0.5\textwidth]{images/mj-logo.png}}}
-% }
-
+%-----------------------------------------------------------------------------%
 % END OF TITLE PAGE
-
+%-----------------------------------------------------------------------------%
 \newpage
 
+%-----------------------------------------------------------------------------%
 % START OF ABOUT PAGE
+%-----------------------------------------------------------------------------%
 
 \section*{About Mobilizing Justice}
 
@@ -94,11 +123,58 @@ Federation of Canadian Municipalities	& Toronto Transit Commission (TTC)	& \LL
 }
 \end{center}
 
+%-----------------------------------------------------------------------------%
 % END OF ABOUT PAGE
-
+%-----------------------------------------------------------------------------%
 \newpage
 
+%-----------------------------------------------------------------------------%
+% START OF AUTHORS PAGE
+%-----------------------------------------------------------------------------%
+
+\section*{About the Author(s)}
+
+$for(by-author)$
+  {\relscale{1.25}{\textcolor{Maroon}{$by-author.name.literal$}}}%
+  % Needs to iterate by affilitations department
+  $for(by-author.affiliations)$
+    \vskip 1pt{\relscale{0.75}{\textcolor{black}{$by-author.affiliations.department$}}}%
+  $endfor$ 
+  % Needs to iterate by affilitations name
+  $for(by-author.affiliations)$
+    \vskip -8pt{\relscale{0.75}{\textcolor{black}{$by-author.affiliations.name$}}}%
+  $endfor$ 
+  % Needs to iterate by email
+  $for(by-author.email)$
+    \vskip -8pt{\relscale{0.75}{\textcolor{black}{email: \url{$by-author.email$}}}}%
+  $endfor$ 
+  \vskip 15pt
+$endfor$
+
+%-----------------------------------------------------------------------------%
+% END OF AUTHORS PAGE
+%-----------------------------------------------------------------------------%
+\newpage
+
+%-----------------------------------------------------------------------------%
+% START OF ACKNOWLEDGMENTS PAGE
+%-----------------------------------------------------------------------------%
+
+\section*{Acknowledgements}
+
+
+$if(acknowledgements)$
+  $acknowledgements$
+$endif$
+
+%-----------------------------------------------------------------------------%
+% END OF ACKNOWLEDGMENTS PAGE
+%-----------------------------------------------------------------------------%
+\newpage
+
+%-----------------------------------------------------------------------------%
 % START OF TABLE OF CONTENTS PAGE
+%-----------------------------------------------------------------------------%
 
 % Table of contents picture top
 \AddToShipoutPictureBG*{%
@@ -115,6 +191,7 @@ Federation of Canadian Municipalities	& Toronto Transit Commission (TTC)	& \LL
 \tableofcontents
 \restoregeometry
 
-% ENDO OF TABLE OF CONTENTS
-
+%-----------------------------------------------------------------------------%
+% END OF TABLE OF CONTENTS
+%-----------------------------------------------------------------------------%
 \newpage
