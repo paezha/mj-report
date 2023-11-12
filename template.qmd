@@ -1,6 +1,5 @@
 ---
-title: "Mobilizing Justice Report"
-# THIS rtitle HERE IS NOT WORKING AT THE MOMENT LIKELY BECAUSE I DID NOT DEFINE IT CORRECTLY
+title: "Title of Report"
 subtitle: "This is the running title of the report"
 format:
   mj-report-pdf: 
@@ -10,16 +9,11 @@ author:
     affiliations: 
       - name: McMaster University
         department: School of Earth, Environment and Society
-    #attributes:
-    #  equal-contributor: true
     email: corresponding1@email.com
   - name: Author Two
     affiliations: 
       - name: University of Toronto
         department: Department of Geography and Planning
-    #attributes:
-    #  equal-contributor: true
-    #  corresponding: true
     email: corresponding2@email.com  
 date: last-modified
 acknowledgements: | 

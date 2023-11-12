@@ -46,37 +46,31 @@
  \AtPageUpperLeft{\raisebox{-\bannerheight-\height}{\includegraphics[width=\paperwidth]{images/cover-picture.png}}}
  }
 
+% HERE GOES THE TITLE OF THE DOCUMENT
+$if(title)$
+  \vspace{-5cm}{\relscale{1.75}{\textcolor{white}{$title$}}}\par%
+$endif$
+% HERE GOES THE DOCUMENT TYPE; CURRENTLY HARDCODED BUT COULD BE AN INPUT IN template.qmd
+{\relscale{1.25}{\textcolor{Yellow}{Report}}}\hfill
+% HERE GOES THE DATE OF PUBLICATION
+{\relscale{1.0}{\textcolor{LightGray}{$date$}}}
+        
 % Report information: Needs information that is in file template.qmd
 \begin{flushleft}
-    \vspace{-7cm}
-      
-      % HERE GOES THE TITLE OF THE DOCUMENT
-      $if(title)$
-        {\relscale{2}{\textcolor{white}{$title$}}}\\  
-      $endif$
-      \vspace{1cm} 
-      
-      % HERE GO THE AUTHORS AFFILIATIONS (ONLY NAME OF ORGANIZATION)
-      % Needs to iterate by authors
-      $for(by-author)$
-        {\relscale{1.5}{\textcolor{Yellow}{$by-author.name.literal$}}} 
-          % Needs to iterate by affilitations
-          $for(by-author.affiliations)$
-            \hskip 10pt{\relscale{1.0}{\textcolor{Yellow}{$by-author.affiliations.name$}}} \par%
-          $endfor$ 
-      $endfor$
-    
+  \vspace{0.5cm} 
+  % HERE GO THE AUTHORS AFFILIATIONS (ONLY NAME OF ORGANIZATION)
+  % Needs to iterate by authors
+  $for(by-author)$
+    {\relscale{1.25}{\textcolor{Yellow}{$by-author.name.literal$}}} 
+    % Needs to iterate by affilitations
+    $for(by-author.affiliations)$
+      \hskip 10pt{\relscale{0.75}{\textcolor{Yellow}{$by-author.affiliations.name$}}} \par%
+    $endfor$ 
+  $endfor$
 \end{flushleft}
 
-\begin{flushright}
-    \vspace{-1cm}
-        {\relscale{1.5}{\textcolor{Yellow}{Report}}}\\ % HERE GOES THE DOCUMENT TYPE; CURRENTLY HARDCODED BUT COULD BE AN INPUT IN template.qmd
-        \vspace{1cm}     
-        {\relscale{1.5}{\textcolor{LightGray}{$date$}}} % HERE GOES THE DATE OF PUBLICATION
-\end{flushright}
-
 % Mobilizing Justice Logo
-\AddToShipoutPictureBG*{\put(30,30)%
+\AddToShipoutPictureBG*{\put(50,30)%
 {\includegraphics[width=0.5\textwidth]{images/mj-logo.png}%
 }}
 
@@ -161,7 +155,6 @@ $endfor$
 %-----------------------------------------------------------------------------%
 
 \section*{Acknowledgements}
-
 
 $if(acknowledgements)$
   $acknowledgements$
