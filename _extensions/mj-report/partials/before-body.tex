@@ -51,7 +51,7 @@ $if(title)$
   \vspace{-5cm}{\relscale{1.75}{\textcolor{white}{$title$}}}\par%
 $endif$
 % HERE GOES THE DOCUMENT TYPE; CURRENTLY HARDCODED BUT COULD BE AN INPUT IN template.qmd
-{\relscale{1.25}{\textcolor{Yellow}{Report}}}\hfill
+{\relscale{1.25}{\textcolor{Yellow}{$doctype$}}}\hfill
 % HERE GOES THE DATE OF PUBLICATION
 {\relscale{1.0}{\textcolor{LightGray}{$date$}}}
         
@@ -76,6 +76,43 @@ $endif$
 
 %-----------------------------------------------------------------------------%
 % END OF TITLE PAGE
+%-----------------------------------------------------------------------------%
+\newpage
+
+%-----------------------------------------------------------------------------%
+% START OF HOW TO CITE PAGE
+%-----------------------------------------------------------------------------%
+\thispagestyle{empty}
+
+\section{Citing This Document}
+
+This \href{$citation.url$}{report} is published under a Creative Commons \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY Licence} \includegraphics[height=11pt]{images/cc-by.png}.
+
+% HERE GOES THE TITLE OF THE DOCUMENT
+$if(citation)$
+  \vskip 20pt
+  For attribution, please cite this work as:\\
+  \vskip 1pt
+  $for(by-author)$
+    {$by-author.name.literal$},
+  $endfor$ \the\year. "\textit{$title$}". Mobilizing Justice, Report \textit{$citation.number$} (url: \url{$citation.url$}).
+  \vskip 20pt
+  Or use this bibtex card:\\
+  \vskip 1pt
+  @report\{$citation.number$,\\
+           \hspace*{1.6cm} author = \{\},\\
+           \hspace*{1.6cm} title = \{$title$\},\\
+           \hspace*{1.6cm} year = \{\the\year\},\\
+           \hspace*{1.6cm} institution = \{Mobilizing Justice\},\\
+           \hspace*{1.6cm} number = \{$citation.number$\},\\
+           \hspace*{1.6cm} url = \{$citation.url$\}\\
+  \}
+$endif$
+
+
+
+%-----------------------------------------------------------------------------%
+% END OF HOW TO CITE PAGE
 %-----------------------------------------------------------------------------%
 \newpage
 
