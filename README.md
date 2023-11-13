@@ -53,5 +53,5 @@ The original template is licensed under the
 ## Acknowledgments
 
 Christopher T. Kenneys’ post on creation of [quarto
-templates](%5Bhttps://christophertkenny.com/posts/2023-07-01-creating-quarto-journal-articles/%5D)
+templates](https://christophertkenny.com/posts/2023-07-01-creating-quarto-journal-articles/)
 was extremely valuable as we learned the task.
