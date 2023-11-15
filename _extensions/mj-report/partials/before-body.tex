@@ -43,7 +43,7 @@
 % Cover picture
 \AddToShipoutPictureBG*{%
  %\AtPageLowerLeft{\raisebox{0.5\height}{\includegraphics[width=\paperwidth]{images/cover-picture.png}}}
- \AtPageUpperLeft{\raisebox{-\bannerheight-\height}{\includegraphics[width=\paperwidth]{images/cover-picture.png}}}
+ \AtPageUpperLeft{\raisebox{-\bannerheight-\height}{\includegraphics[width=\paperwidth]{images/$cover_image$}}}
  }
 
 % HERE GOES THE TITLE OF THE DOCUMENT
@@ -135,6 +135,10 @@ $if(citation)$
            \hspace*{1.6cm} url = \{$citation.url$\}\\
   \}
 $endif$
+
+\vspace*{\fill}
+{\relscale{0.75}{Image on the cover: {$cover_image_caption$}.\\
+Image on the table of contents: {$toc_image_caption$}}}
 
 %-----------------------------------------------------------------------------%
 % END OF HOW TO CITE PAGE
@@ -231,12 +235,16 @@ $endif$
 % START OF TABLE OF CONTENTS PAGE
 %-----------------------------------------------------------------------------%
 
+\settoheight{\bannerheight}{%
+  \includegraphics[width=\paperwidth]{images/$toc_image$}%
+}
+
 % Table of contents picture top
 \AddToShipoutPictureBG*{%
- \AtPageUpperLeft{\raisebox{-\height}{\includegraphics[width=\paperwidth]{images/table-of-contents-picture.png}}}}
+ \AtPageUpperLeft{\raisebox{-\height}{\includegraphics[width=\paperwidth]{images/$toc_image$}}}}
 
 % Change the geometry of this one page so that the table of contents begins below the banner image instead of on top of it
-\newgeometry{top=10cm}
+\newgeometry{top=\bannerheight}
 
 % Title for the table of contents
 %\renewcommand\contentsname{\color{DarkBlue}\normalfont\bfseries\fontsize{24}{28.8}\selectfont Table of Contents}

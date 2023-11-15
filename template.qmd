@@ -5,6 +5,8 @@ format:
   mj-report-pdf: 
     keep-tex: true
 doctype: "Report (Draft)"
+
+# Author information. You can add or delete authors here
 author:
   - name:
       given: Author
@@ -19,10 +21,21 @@ author:
     affiliations: 
       - name: University of Toronto
         department: Department of Geography and Planning
-    email: corresponding2@email.com  
+    email: corresponding2@email.com 
+
+# Date: default is last modified but could be a string.  
 date: last-modified
+
+# Write the acknowledgments; remember to use a tab at the beginning of each paragraph
 acknowledgements: | 
   Please include your acknowledgments here, set in a single paragraph. Please do not include any acknowledgments in the Supporting Information, or anywhere else in the manuscript.
+
+# Place the cover image and the toc image in folder `images`
+cover_image: cover-picture.png
+cover_image_caption: "This is the caption for the image on the cover"
+toc_image: toc-picture.png
+toc_image_caption: "This is the caption for the image on the table of contents"
+# Information for generating citation
 citation:
   type: report
   doi: "10.23915/reprodocs.00010"
